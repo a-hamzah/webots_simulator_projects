@@ -1,0 +1,89 @@
+#VRML_SIM R2023a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/picaxe/microbot/protos/Microbot.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/Parquetry.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.18866336884033033 -0.6020010679221964 0.7758871357860966 5.515443803468056
+  position -5.0300803561580505 2.5094873696788755 3.192200039112811
+}
+TexturedBackground {
+  texture "empty_office"
+}
+TexturedBackgroundLight {
+  luminosity 0
+}
+RectangleArena {
+  floorSize 5 5
+  floorAppearance Parquetry {
+    type "dark strip"
+  }
+}
+Solid {
+  translation 0 0.21 0
+  scale 0.02 0.02 0.02
+  children [
+    Shape {
+      appearance PBRAppearance {
+        metalness 0
+      }
+      geometry Mesh {
+        url [
+          "../protos/simple_track/tinker.obj"
+        ]
+      }
+    }
+  ]
+  name "Track2"
+}
+Microbot {
+  translation 0.0504893 0.350179 0.022
+  rotation -6.671329999976513e-13 -2.6535899999906573e-06 0.9999999999964793 -3.1415853071795863
+  controller "copy_controller"
+  extensionSlot [
+    DistanceSensor {
+      translation 0.05 -0.04 0
+      rotation 0 1 0 1.57
+      children [
+        Shape {
+          geometry Box {
+            size 0.009 0.009 0.009
+          }
+        }
+      ]
+      name "ds_right"
+      type "infra-red"
+    }
+    DistanceSensor {
+      translation 0.06 0 0
+      rotation 0 1 0 1.57
+      children [
+        Shape {
+          geometry Box {
+            size 0.009 0.009 0.009
+          }
+        }
+      ]
+      name "ds_middle"
+      type "infra-red"
+    }
+    DistanceSensor {
+      translation 0.05 0.04 0
+      rotation 0 1 0 1.57
+      children [
+        Shape {
+          geometry Box {
+            size 0.009 0.009 0.009
+          }
+        }
+      ]
+      name "ds_left"
+      type "infra-red"
+    }
+  ]
+}
