@@ -23,32 +23,18 @@ states = ['forward', 'turn_right', 'turn_left']
 current_state = states[0]
 
 # counter: used to maintain an active state for a number of cycles
+
 counter = 0
 COUNTER_MAX = 32
 
-#-------------------------------------------------------
-# Initialize devices
+# -----------------ground sensors------------
 
-# # distance sensors
-# ps = []
-# psNames = ['ps0', 'ps1', 'ps2', 'ps3', 'ps4', 'ps5', 'ps6', 'ps7']
-# for i in range(8):
-#     ps.append(robot.getDevice(psNames[i]))
-#     ps[i].enable(timestep)
-
-# # ground sensors
-# gs = []
-# gsNames = ['ds_right', 'ds_left', 'ds_middle']
-# for i in range(3):
-#     gs.append(robot.getDevice(gsNames[i]))
-#     gs[i].enable(timestep)
-
-# -----------------ground sensors
 gs = []
 gsNames = ['ds_right', 'ds_middle', 'ds_left']
 for i in range(3):
     gs.append(robot.getDevice(gsNames[i]))
     gs[i].enable(timestep)
+
 # ---------------------------
 
 # motors    
